@@ -4,7 +4,7 @@ header {
   display: flex;
   justify-content: space-between;
   padding: 20px;
-  background: white;
+  background: rgb(255, 188, 246);
   border-bottom: 1px solid #ddd;
 }
 
