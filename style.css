@@ -1,7 +1,8 @@
+/* ---------------- BASE ---------------- */
 body {
   margin: 0;
   font-family: Helvetica, Arial, sans-serif;
-  background: #fafafa;
+  background: #ffeed9;
   color: #111;
 }
 
@@ -9,9 +10,10 @@ body {
 header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 20px 40px;
-  background: rgb(255, 255, 255);
-  border-bottom: 1px solid #ddd;
+  background: #febe6f;
+  border-bottom: 3px solid #f0ac58;
 }
 
 nav a {
@@ -20,42 +22,33 @@ nav a {
   color: #333;
 }
 
-/* ---------------- HOME HERO ---------------- */
-header {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px 40px;
-  background: rgb(255, 255, 255);
-  border-bottom: 1px solid #ddd;
-}
-
-nav a {
-  margin-left: 15px;
-  text-decoration: none;
-  color: #333;
-}
-
-/* CENTER LAYOUT */
+/* ---------------- HERO (p5 BACKGROUND) ---------------- */
 .hero {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 90vh;
+  min-height: 90vh;
   text-align: center;
+  overflow: hidden;
+}
+
+/* keeps your content ABOVE the canvas */
+.hero-center {
+  position: relative;
+  z-index: 1;
+  max-width: 520px;
   padding: 40px;
 }
 
-.hero-center {
-  max-width: 520px;
-}
-
-/* IMAGE BACK */
-.hero-image {
-  width: 100%;
-  height: 320px;
+/* IMAGE */
+.about-image {
+  width: 280px;
+  height: 400px;
   object-fit: cover;
   border-radius: 12px;
   margin-bottom: 25px;
+border: 3px solid #febe6f;
 }
 
 /* BUTTON */
@@ -63,13 +56,13 @@ nav a {
   display: inline-block;
   padding: 10px 16px;
   background: black;
-  color: white;
+  color: #ffeed9;
   text-decoration: none;
   margin-top: 15px;
   margin-bottom: 20px;
 }
 
-/* SOCIALS (ALL 3 ARE HERE) */
+/* SOCIALS */
 .socials {
   display: flex;
   justify-content: center;
@@ -87,6 +80,11 @@ nav a {
   color: black;
 }
 
+/* makes p5 canvas behave like a background */
+canvas {
+  display: block;
+}
+
 /* ---------------- PORTFOLIO LANDING PAGE ---------------- */
 .portfolio-menu {
   display: grid;
@@ -98,45 +96,7 @@ nav a {
   box-sizing: border-box;
 }
 
-/* BIG, FULL CARDS */
-.menu-card {
-  position: relative;
-  height: 280px;
-  width: 100%;
-  border-radius: 12px;
-  overflow: hidden;
-  text-decoration: none;
-  background: #ddd;
-}
-
-/* fake image */
-.menu-image {
-  position: absolute;
-  inset: 0;
-  background: #cfcfcf;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 28px;
-}
-
-/* title */
-.menu-card h2 {
-  position: absolute;
-  bottom: 12px;
-  left: 12px;
-  background: rgba(255,255,255,0.85);
-  padding: 6px 10px;
-  margin: 0;
-}
-
-/* hover */
-.menu-card:hover .menu-image {
-  transform: scale(1.05);
-  transition: 0.3s;
-}
-
-/* base card */
+/* BIG CARDS */
 .menu-card {
   position: relative;
   display: block;
@@ -145,14 +105,14 @@ nav a {
   border-radius: 12px;
   overflow: hidden;
   text-decoration: none;
-  background: #ddd;
+  background: #ffeed9;
 }
 
-/* fake image area */
+/* fake image */
 .menu-image {
   position: absolute;
   inset: 0;
-  background: #cfcfcf;
+  background: #ffeed9;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -173,19 +133,19 @@ nav a {
   color: #111;
 }
 
-/* hover effect */
+/* hover */
 .menu-card:hover .menu-image {
   transform: scale(1.05);
 }
 
-/* ---------------- PORTFOLIO LAYOUT VARIATION ---------------- */
+/* layout variation */
 .card1 { grid-column: span 6; aspect-ratio: 16 / 10; }
 .card2 { grid-column: span 3; }
 .card3 { grid-column: span 3; }
 .card4 { grid-column: span 7; aspect-ratio: 16 / 11; }
 .card5 { grid-column: span 5; }
 
-/* ---------------- CATEGORY PAGES (PHOTOS ETC) ---------------- */
+/* ---------------- CATEGORY PAGES ---------------- */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -210,18 +170,16 @@ nav a {
   gap: 60px;
   padding: 80px 40px;
   max-width: 1000px;
-  margin: 0 auto; /* THIS centers the whole block */
+  margin: 0 auto;
 }
 
-/* IMAGE — taller rectangle */
 .about-image {
   width: 280px;
-  height: 400px;   /* makes it portrait / vertical */
+  height: 400px;
   object-fit: cover;
   border-radius: 12px;
 }
 
-/* TEXT */
 .about-text {
   max-width: 450px;
 }
@@ -261,4 +219,3 @@ button {
   max-width: 600px;
   color: #444;
 }
-
