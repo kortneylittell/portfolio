@@ -18,7 +18,30 @@ function setup() {
 }
 
 function draw() {
-  image(bgImage, 0, 0, width, height);
+  clear();
+
+  let imgRatio = bgImage.width / bgImage.height;
+  let canvasRatio = width / height;
+
+  let drawWidth, drawHeight;
+
+  if (canvasRatio > imgRatio) {
+    // canvas is wider → match width
+    drawWidth = width;
+    drawHeight = width / imgRatio;
+  } else {
+    // canvas is taller → match height
+    drawHeight = height;
+    drawWidth = height * imgRatio;
+  }
+
+  image(
+    bgImage,
+    (width - drawWidth) / 2,
+    (height - drawHeight) / 2,
+    drawWidth,
+    drawHeight
+  );
 }
 
 function windowResized() {

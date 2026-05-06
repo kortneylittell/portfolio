@@ -1,91 +1,142 @@
 /* ---------------- BASE ---------------- */
 body {
   margin: 0;
-  font-family: Helvetica, Arial, sans-serif;
-  background: #ffeed9;
+  font-family: "Sofia Sans Condensed", sans-serif;
+  font-weight: 500;
+  background: #d8d0d7;
   color: #111;
 }
 
 /* ---------------- HEADER ---------------- */
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 40px;
-  background: #febe6f;
-  border-bottom: 3px solid #f0ac58;
+  position: relative;
+  z-index: 2;
 }
 
-nav a {
-  margin-left: 15px;
+.header-drip {
+  position: absolute;
+  top: 0px; /* adjust depending on header height */
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: 0; /* sits behind header */
+  pointer-events: none; /* so it doesn't block clicks */
+}
+/* NAV */
+.header-left nav {
+  display: flex;
+  gap: 60px;
+  margin-left: 80px;  /* pushes right */
+  margin-top: 60px;   /* pushes down */
+  align-items: center;
+}
+
+.header-left nav a {
   text-decoration: none;
+  color: #d8d0d7;
+  font-weight: 580;
+  letter-spacing: 3px;
+  font-size: 35px;
+}
+
+/* ---------------- HERO (ONLY INDEX PAGE) ---------------- */
+/* scoped so it DOES NOT affect about page */
+.hero {
+  display: flex;
+  align-items: center;
+  min-height: 90vh;
+  padding-left: 25px;
+  margin-top: 120px; /* adjust this */
+}
+
+/* LEFT HERO CONTENT */
+.hero-left {
+  max-width: 500px;
+  text-align: left;
+}
+
+.hero-name {
+  font-size: 64px;
+  margin: 0;
+  line-height: 1;
+  letter-spacing: 3px;
+}
+
+.hero-title {
+  margin-top: 10px;
+  font-size: 25px;
+  font-weight: 300;
   color: #333;
 }
 
-/* ---------------- HERO (p5 BACKGROUND) ---------------- */
-.hero {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 90vh;
-  text-align: center;
-  overflow: hidden;
-}
-
-/* keeps your content ABOVE the canvas */
-.hero-center {
-  position: relative;
-  z-index: 1;
-  max-width: 520px;
-  padding: 40px;
-}
-
-/* IMAGE */
-.about-image {
-  width: 280px;
-  height: 400px;
-  object-fit: cover;
-  border-radius: 12px;
+.hero-text {
+  margin-top: 25px;
   margin-bottom: 25px;
-border: 2px solid #febe6f;
+  line-height: 1.5;
+  font-size: 18px;
+  font-weight: 300;
+  color: #444;
 }
 
 /* BUTTON */
-.enter-btn {
+.learn-btn {
   display: inline-block;
-  padding: 10px 16px;
-  background: black;
-  color: #ffeed9;
+  padding: 10px 18px;
+  background: #d8d0d7;
+  border: 2px solid #9b8c99;
+  border-radius: 25px;
   text-decoration: none;
-  margin-top: 15px;
+  color: black;
   margin-bottom: 20px;
 }
 
 /* SOCIALS */
-.socials {
+.hero-socials {
+  position: absolute;
+  top: 30px;     /* adjust vertically */
+  right: 60px;   /* pushes it to right side */
   display: flex;
-  justify-content: center;
-  gap: 15px;
-  font-size: 14px;
-  margin-top: 10px;
+  flex-direction: row;
+  gap: 30px;
+  margin-top: 0; /* remove old spacing */
+  z-index: 3;
+  font-size: 18px;
 }
 
-.socials a {
-  color: #666;
+.hero-socials a {
   text-decoration: none;
+  color: #c1b6bf;
 }
 
-.socials a:hover {
-  color: black;
+.hero-socials a:hover {
+  color: #c1b6bf;
 }
 
-/* makes p5 canvas behave like a background */
+/* ---------------- IMAGES ---------------- */
+.smear {
+  position: fixed;
+  left: 65%;
+  top: 68%;
+  transform: translateY(-50%) rotate(340deg);
+  width: 300px;
+  height: auto;
+}
+
+video {
+  position: fixed;
+  left: 35%;
+  top: 60%;
+  transform: translateY(-50%) rotate(55deg);
+  width: 1000px;
+  height: auto;
+}
+
+/* ---------------- CANVAS ---------------- */
 canvas {
   display: block;
 }
 
-/* ---------------- PORTFOLIO LANDING PAGE ---------------- */
+/* ---------------- PORTFOLIO ---------------- */
 .portfolio-menu {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -96,7 +147,6 @@ canvas {
   box-sizing: border-box;
 }
 
-/* BIG CARDS */
 .menu-card {
   position: relative;
   display: block;
@@ -108,7 +158,6 @@ canvas {
   background: #ffeed9;
 }
 
-/* fake image */
 .menu-image {
   position: absolute;
   inset: 0;
@@ -117,52 +166,66 @@ canvas {
   align-items: center;
   justify-content: center;
   font-size: 26px;
-  color: rgba(0,0,0,0.25);
+  color: rgba(0, 0, 0, 0.25);
   transition: 0.3s ease;
 }
 
-/* title */
 .menu-card h2 {
   position: absolute;
   bottom: 12px;
   left: 12px;
   margin: 0;
   font-size: 15px;
-  background: rgba(255,255,255,0.85);
+  background: rgba(255, 255, 255, 0.85);
   padding: 5px 10px;
   color: #111;
 }
 
-/* hover */
 .menu-card:hover .menu-image {
   transform: scale(1.05);
 }
 
-/* layout variation */
-.card1 { grid-column: span 6; aspect-ratio: 16 / 10; }
-.card2 { grid-column: span 3; }
-.card3 { grid-column: span 3; }
-.card4 { grid-column: span 7; aspect-ratio: 16 / 11; }
-.card5 { grid-column: span 5; }
-
-/* ---------------- CATEGORY PAGES ---------------- */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  padding: 40px;
+/* layout variations */
+.card1 {
+  grid-column: span 6;
+  aspect-ratio: 16 / 10;
+}
+.card2 {
+  grid-column: span 3;
+}
+.card3 {
+  grid-column: span 3;
+}
+.card4 {
+  grid-column: span 7;
+  aspect-ratio: 16 / 11;
+}
+.card5 {
+  grid-column: span 5;
 }
 
-.card {
-  background: #ddd;
-  height: 240px;
+/* ---------------- FORMS ---------------- */
+form {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 10px;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  max-width: 400px;
 }
 
-/* ---------------- ABOUT ---------------- */
+input,
+textarea {
+  padding: 10px;
+}
+
+button {
+  padding: 10px;
+  background: black;
+  color: white;
+  border: none;
+}
+
+/* ---------------- ABOUT (UNCHANGED - SAFE) ---------------- */
 .about {
   display: flex;
   justify-content: center;
@@ -193,27 +256,7 @@ canvas {
   line-height: 1.5;
 }
 
-/* ---------------- CONTACT ---------------- */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 20px;
-  max-width: 400px;
-}
-
-input, textarea {
-  padding: 10px;
-}
-
-button {
-  padding: 10px;
-  background: black;
-  color: white;
-  border: none;
-}
-
-/* ---------------- INTRO TEXT ---------------- */
+/* ---------------- PAGE TEXT ---------------- */
 .page-intro {
   padding: 40px;
   max-width: 600px;
