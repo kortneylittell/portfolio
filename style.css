@@ -3,7 +3,7 @@ body {
   margin: 0;
   font-family: "Sofia Sans Condensed", sans-serif;
   font-weight: 500;
-  background: #d8d0d7;
+  background: #ded2db;
   color: #111;
 }
 
@@ -45,28 +45,43 @@ header {
   display: flex;
   align-items: center;
   min-height: 90vh;
-  padding-left: 25px;
-  margin-top: 120px; /* adjust this */
+  margin-left: 150px;
+  margin-top: 100px; /* adjust this */
 }
 
 /* LEFT HERO CONTENT */
+
 .hero-left {
+  position: relative;
   max-width: 500px;
   text-align: left;
+  padding-left: 20px; /* space for the line */
+}
+
+.hero-left::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3px;
+  height: 85px;
+  background: #3c2b36;
+  border-radius: 2px;
 }
 
 .hero-name {
   font-size: 64px;
   margin: 0;
-  line-height: 1;
+  line-height: .85;
   letter-spacing: 3px;
+  color: #3c2b36;
 }
 
 .hero-title {
-  margin-top: 10px;
+  margin-top: 2px;
   font-size: 25px;
-  font-weight: 300;
-  color: #333;
+  font-weight: 350;
+  color: #3c2b36;
 }
 
 .hero-text {
@@ -75,7 +90,9 @@ header {
   line-height: 1.5;
   font-size: 18px;
   font-weight: 300;
-  color: #444;
+  color: #3c2b36;
+    max-width: 350px;
+    letter-spacing: 1px;
 }
 
 /* BUTTON */
@@ -86,7 +103,7 @@ header {
   border: 2px solid #9b8c99;
   border-radius: 25px;
   text-decoration: none;
-  color: black;
+  color: #3c2b36;
   margin-bottom: 20px;
 }
 
@@ -114,7 +131,7 @@ header {
 
 /* ---------------- IMAGES ---------------- */
 .smear {
-  position: fixed;
+  position: absolute;
   left: 65%;
   top: 68%;
   transform: translateY(-50%) rotate(340deg);
@@ -123,7 +140,7 @@ header {
 }
 
 video {
-  position: fixed;
+  position: absolute;
   left: 35%;
   top: 60%;
   transform: translateY(-50%) rotate(55deg);
@@ -145,6 +162,7 @@ canvas {
   width: 100%;
   min-height: 100vh;
   box-sizing: border-box;
+  margin-top: 200px;
 }
 
 .menu-card {
@@ -166,7 +184,7 @@ canvas {
   align-items: center;
   justify-content: center;
   font-size: 26px;
-  color: rgba(0, 0, 0, 0.25);
+  color: #9b8d99;
   transition: 0.3s ease;
 }
 
@@ -178,7 +196,7 @@ canvas {
   font-size: 15px;
   background: rgba(255, 255, 255, 0.85);
   padding: 5px 10px;
-  color: #111;
+  color: #9b8d99;
 }
 
 .menu-card:hover .menu-image {
@@ -208,14 +226,18 @@ canvas {
 form {
   display: flex;
   flex-direction: column;
+  margin-top: 200px;
+  margin-left: 32%;
   gap: 10px;
   padding: 20px;
-  max-width: 400px;
+  width: 80%;
+  max-width: 500px;
 }
 
 input,
 textarea {
   padding: 10px;
+  width: 100%;
 }
 
 button {
@@ -237,18 +259,38 @@ button {
 }
 
 .about-image {
-  width: 280px;
-  height: 400px;
+  width: 400px;
+  height: 600px;
   object-fit: cover;
   border-radius: 12px;
+  margin-top: 170px;
 }
 
 .about-text {
+  position: relative;
   max-width: 450px;
+  padding-left: 20px;
+   font-size: 18px;
+  font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.about-text::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 172px;
+  bottom: 0;
+  width: 2px;
+  height: 40px;
+  background: #3c2b36;
+  border-radius: 2px;
 }
 
 .about-text h2 {
-  margin-bottom: 10px;
+  margin-top: 170px;
+   font-size: 40px;
+   letter-spacing: 2px;
 }
 
 .about-text p {
@@ -261,4 +303,13 @@ button {
   padding: 40px;
   max-width: 600px;
   color: #444;
+}
+
+header nav a {
+  text-decoration: none;
+  color: #d8d0d7;
+  font-weight: 580;
+  letter-spacing: 3px;
+  font-size: 35px;
+    font-family: "Sofia Sans Condensed", sans-serif;
 }
