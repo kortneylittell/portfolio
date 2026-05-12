@@ -434,3 +434,10 @@ header nav a {
   line-height: 1.5;
   font-size: 16px;
 }
+
+.stage {
+  position: relative;
+  width: 1200px;
+  height: 800px;
+  margin: auto;
+}
